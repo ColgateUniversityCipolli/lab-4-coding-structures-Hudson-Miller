@@ -146,7 +146,7 @@ Install and load the `rvest` package [@rvest].
 
 ## Part b
 
-Load the html of the `website/KimchiGrilledCheese.html` using the `read_html()` function. We will use the Kimchi Grilled Cheese recipe as our prototype and extend this workflow to all recipes, so try to be as general as possible. If you do look at it, you'll notice it contains the html we saw in the developer tools in class.<br/>
+Load the html of the `website/KimchiGrilledCheese.html` using the `read_html()` function and save the result to an object called `recipe.item`. We will use the Kimchi Grilled Cheese recipe as our prototype and extend this workflow to all recipes, so try to be as general as possible. If you do look at it, you'll notice it contains the html we saw in the developer tools in class.<br/>
 **Hint**: You can use `read_html(...)` like `read.csv(...)`. Don't forget you can use the documentation to help use it.
 
 ## Part c
@@ -182,7 +182,8 @@ Now that we have all the things we need, let's try to print the recipe. Below, I
 ```{r}
 #| eval: false
 # width="50%" shrinks the image for printing
-cat(paste('<img src="', image.url, '" style="width: 50%; height: auto;">'))
+recipe.title <- recipe.item |> html_element("h1") |> html_text()
+cat(paste('![', recipe.title, '](', image.url, "){width=50%}", sep="")) 
 ```
 
 **Ingredients**
@@ -225,4 +226,5 @@ Did you use loops in your code? If yes, how. If not, are there places you could 
 
 ## Functions
 Did you use functions in your code? If yes, how. If not, are there places you could have used them but did something else?
+
 
