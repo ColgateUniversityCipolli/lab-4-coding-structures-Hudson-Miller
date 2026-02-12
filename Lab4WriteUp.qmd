@@ -312,6 +312,9 @@ Similar to Part c. Find the name of the Instructions section of the website and 
 
 **Solution**
 
+```{r}
+(instructions.section = html_element(recipe.item, "#instructions"))
+```
 
 
 ## Part f

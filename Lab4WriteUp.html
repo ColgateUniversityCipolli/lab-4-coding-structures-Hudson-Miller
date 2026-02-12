@@ -555,6 +555,21 @@ window.Quarto = {
 <section id="part-e-1" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="part-e-1"><span class="header-section-number">2.5</span> Part e</h2>
 <p>Similar to Part c.&nbsp;Find the name of the Instructions section of the website and pull the HTML of the function using <code>html_element(...)</code> and save the results to an object called <code>instructions.section</code>.<br></p>
+<p><strong>Solution</strong></p>
+<p></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>(<span class="at">instructions.section =</span> <span class="fu">html_element</span>(recipe.item, <span class="st">"#instructions"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>{html_node}
+&lt;section id="instructions" class="level2"&gt;
+[1] &lt;h2 class="anchored" data-anchor-id="instructions"&gt;Instructions&lt;/h2&gt;
+[2] &lt;ol type="1"&gt;\n&lt;li&gt;In a frying pan, heat 2 tablespoons olive oil with chi ...</code></pre>
+</div>
+</div>
+<p></p>
 </section>
 <section id="part-f-1" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="part-f-1"><span class="header-section-number">2.6</span> Part f</h2>
@@ -576,9 +591,9 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># width="50%" shrinks the image for printing</span></span>
-<span id="cb40-2"><a href="#cb40-2"></a>recipe.title <span class="ot">&lt;-</span> recipe.item <span class="sc">|&gt;</span> <span class="fu">html_element</span>(<span class="st">"h1"</span>) <span class="sc">|&gt;</span> <span class="fu">html_text</span>()</span>
-<span id="cb40-3"><a href="#cb40-3"></a><span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">'!['</span>, recipe.title, <span class="st">']('</span>, image.url, <span class="st">"){width=50%}"</span>, <span class="at">sep=</span><span class="st">""</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># width="50%" shrinks the image for printing</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a>recipe.title <span class="ot">&lt;-</span> recipe.item <span class="sc">|&gt;</span> <span class="fu">html_element</span>(<span class="st">"h1"</span>) <span class="sc">|&gt;</span> <span class="fu">html_text</span>()</span>
+<span id="cb42-3"><a href="#cb42-3"></a><span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">'!['</span>, recipe.title, <span class="st">']('</span>, image.url, <span class="st">"){width=50%}"</span>, <span class="at">sep=</span><span class="st">""</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p></p>
@@ -587,8 +602,8 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>formatted_list <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"-"</span>, <span class="fu">html_text</span>(ingredients))</span>
-<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">cat</span>(formatted_list, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>formatted_list <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"-"</span>, <span class="fu">html_text</span>(ingredients))</span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="fu">cat</span>(formatted_list, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p></p>
@@ -597,8 +612,8 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>formatted_list <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"1."</span>, <span class="fu">html_text</span>(instructions))</span>
-<span id="cb42-2"><a href="#cb42-2"></a><span class="fu">cat</span>(formatted_list, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>formatted_list <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"1."</span>, <span class="fu">html_text</span>(instructions))</span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">cat</span>(formatted_list, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p></p>
