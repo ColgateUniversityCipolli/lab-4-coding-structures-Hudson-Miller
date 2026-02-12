@@ -130,7 +130,15 @@ recipe = function(recipe.number){
 }
 
 r1 = recipe(1)
+r2 = recipe(2)
+r3 = recipe(3)
+r4 = recipe(4)
 ```
+
+
+
+
+# Recipe One
 
 
 ```{r}
@@ -156,11 +164,32 @@ formatted_list <- paste("1.", html_text(r1$instructions))
 cat(formatted_list, sep = "\n")
 ```
 
-# Recipe One
-
 \newpage
 
 # Recipe Two
+
+```{r}
+#| echo: false
+#| results: 'asis'
+# width="50%" shrinks the image for printing
+recipe.title <- html_element(recipe.items[[2]],"h1") |> html_text()
+cat(paste('![', recipe.title, '](', r2$image.url, "){width=50%}", sep="")) 
+```
+
+
+```{r}
+#| echo: false
+#| results: 'asis'
+formatted_list <- paste("-", html_text(r2$ingredients))
+cat(formatted_list, sep = "\n")
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+formatted_list <- paste("1.", html_text(r2$instructions))
+cat(formatted_list, sep = "\n")
+```
 
 \newpage
 
