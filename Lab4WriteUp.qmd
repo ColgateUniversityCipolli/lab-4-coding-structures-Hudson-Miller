@@ -119,7 +119,7 @@ Ask for the column `x1`.
 **Solution**
 
 ```{r}
-(df[,c(1)])
+(df[,1])
 ```
 
 ## Part d
@@ -128,20 +128,49 @@ Ask for the fifth row of the data frame.
 **Solution**
 
 ```{r}
-(df[c(5),])
+(df[5,])
 ```
 
 ## Part e
 Ask for the the value of `x1` in the fifth row of the data frame.
 
+**Solution**
+
+```{r}
+(df[5,1])
+```
+
 ## Part f
 Ask for the the value of in the third column and the fifth row of the data frame.
+
+**Solution**
+
+```{r}
+(df[5,3])
+```
 
 ## Part g
 Create a sequence from 1 to 10 by 2 and use it to print the odd rows of the data frame.
 
+**Solution**
+
+```{r}
+
+```
+
 ## Part h
 Below, I create an empty column called `x12`. Fill in the details of the `for(...)` loop to ensure `x12` is the product of `x1` and `x2`.
+```{r}
+#| size: "scriptsize"
+n <- nrow(df)                # How many rows to we have to fill?
+df$x12 <- rep(NA, nrow(df))   # Create an empty column for x12
+for(i in 1:nrow(df)){
+  # REPLACE WITH THE NECESSARY CODE
+}
+```
+
+**Solution**
+
 ```{r}
 #| size: "scriptsize"
 n <- nrow(df)                # How many rows to we have to fill?
