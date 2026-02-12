@@ -228,6 +228,37 @@ evaluate.row = function(value){
 ## Part k
 Did we need to use loops or functions in (h.)-(j.)? That is, can we use vectorization to attain the same results in 1 line each? Where it is possible, write the line of code. Where it is not, explain why.
 
+**Solution**
+
+In h., we can simply use multiplication with `*`, because multiplication is vectorized in `R`. For example:
+
+```{r}
+(x12 = df$x1 * df$x2)
+```
+
+In i., all of the operations used (multiplication, addition, and subtraction) are vectorized, so we can come to the same result using vectors:
+
+```{r}
+(total.score = (df$x1 * 2) + df$x2 - df$x3)
+```
+
+In j., we did not need to use a function. We could have simply used `ifelse`, which works in one line and is vectorized: 
+
+```{r}
+(evaluate.row.ifelse = ifelse(df$x1 < 4, "low", ifelse(df$x1 <=7, "mid", "high")))
+```
+
+or, as Professor Cipolli showed me in class:
+
+```{r}
+result <- rep("mid", nrow(df))
+result[df$x1<4] <- "low"
+result[df$x1>7] <- "high"
+result[is.na(df$x1)] <- NA
+(result)
+```
+
+
 # Complete Tasks for One Recipe
 
 ## Part a
