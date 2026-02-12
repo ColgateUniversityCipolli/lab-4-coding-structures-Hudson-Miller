@@ -294,7 +294,6 @@ Find the name of the Ingredients section of the website and pull the HTML of the
 
 ```{r}
 (ingredients.section = html_element(recipe.item, "#ingredients"))
-
 ```
 
 ## Part d

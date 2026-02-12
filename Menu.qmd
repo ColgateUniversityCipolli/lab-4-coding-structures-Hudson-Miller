@@ -84,9 +84,77 @@ dinner <- c("website/AfricanPeanutSoup.html",
             "website/Shakshuka.html")
 ```
 
+**Instructions**
+
+1. Randomly select three dinner recipes and one breakfast recipe at random.<br/>
+**Hint:** Use the `sample(...)` function.
+2. Pull the image, ingredients, and instructions for each selected recipe.
+3. Combine all of the ingredients into a grocery list on the first page.
+4. Print the image, ingredients, and instructions for each receipe on the subsequent pages.
+
+When you render this document, no code should be visible. Instead, you should see a five-page document as described above.
+
 # Ingredients
 
+```{r}
+(meals = c(sample(dinner, 3, replace = F),sample(breakfasts, 1)))
+```
+
 \newpage
+
+```{r}
+# I am going to create a general algorithm for n number of recipes because I want practice with this type of coding.
+
+library("rvest")
+
+recipe.items = lapply(meals, read_html)
+
+recipe = function(recipe.number){
+  ingredients.section = html_element(recipe.items[[recipe.number]], "#ingredients")
+  ingredients = html_elements(ingredients.section, "li")
+
+  instructions.section = html_element(recipe.items[[recipe.number]], "#instructions")
+  instructions = html_elements(instructions.section, "li")
+
+  image.element = html_element(recipe.items[[recipe.number]], ".img-fluid.figure-img")
+  
+  src = html_attr(image.element, "src")
+  image.url = paste0("website/",src)
+
+  list(
+    ingredients = ingredients,
+    instructions = instructions,
+    image.url = image.url
+  )
+
+}
+
+r1 = recipe(1)
+```
+
+
+```{r}
+#| echo: false
+#| results: 'asis'
+# width="50%" shrinks the image for printing
+recipe.title <- html_element(recipe.items[[1]],"h1") |> html_text()
+cat(paste('![', recipe.title, '](', r1$image.url, "){width=50%}", sep="")) 
+```
+
+
+```{r}
+#| echo: false
+#| results: 'asis'
+formatted_list <- paste("-", html_text(r1$ingredients))
+cat(formatted_list, sep = "\n")
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+formatted_list <- paste("1.", html_text(r1$instructions))
+cat(formatted_list, sep = "\n")
+```
 
 # Recipe One
 
