@@ -116,8 +116,20 @@ Use the `head(...)` function to peek at the data frame.
 ## Part c
 Ask for the column `x1`.
 
+**Solution**
+
+```{r}
+(df[,c(1)])
+```
+
 ## Part d
 Ask for the fifth row of the data frame.
+
+**Solution**
+
+```{r}
+
+```
 
 ## Part e
 Ask for the the value of `x1` in the fifth row of the data frame.
