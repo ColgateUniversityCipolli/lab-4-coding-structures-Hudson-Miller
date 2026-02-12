@@ -128,7 +128,7 @@ Ask for the fifth row of the data frame.
 **Solution**
 
 ```{r}
-
+(df[c(5),])
 ```
 
 ## Part e
