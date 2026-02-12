@@ -163,7 +163,7 @@ Create a sequence from 1 to 10 by 2 and use it to print the odd rows of the data
 Below, I create an empty column called `x12`. Fill in the details of the `for(...)` loop to ensure `x12` is the product of `x1` and `x2`.
 ```{r}
 #| size: "scriptsize"
-n <- nrow(df)                # How many rows to we have to fill?
+n <- nrow(df)                # How many rows do we have to fill?
 df$x12 <- rep(NA, nrow(df))   # Create an empty column for x12
 for(i in 1:nrow(df)){
   # REPLACE WITH THE NECESSARY CODE
@@ -174,11 +174,12 @@ for(i in 1:nrow(df)){
 
 ```{r}
 #| size: "scriptsize"
-n <- nrow(df)                # How many rows to we have to fill?
+n <- nrow(df)                # How many rows do we have to fill?
 df$x12 <- rep(NA, nrow(df))   # Create an empty column for x12
 for(i in 1:nrow(df)){
-  # REPLACE WITH THE NECESSARY CODE
+  df$x12[i] = df$x1[i] * df$x2[i]
 }
+head(df)
 ```
 
 ## Part i
