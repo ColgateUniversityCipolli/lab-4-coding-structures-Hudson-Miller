@@ -84,15 +84,6 @@ dinner <- c("website/AfricanPeanutSoup.html",
             "website/Shakshuka.html")
 ```
 
-**Instructions**
-
-1. Randomly select three dinner recipes and one breakfast recipe at random.<br/>
-**Hint:** Use the `sample(...)` function.
-2. Pull the image, ingredients, and instructions for each selected recipe.
-3. Combine all of the ingredients into a grocery list on the first page.
-4. Print the image, ingredients, and instructions for each receipe on the subsequent pages.
-
-When you render this document, no code should be visible. Instead, you should see a five-page document as described above.
 
 
 ```{r}
@@ -135,6 +126,11 @@ r1 = recipe(1)
 r2 = recipe(2)
 r3 = recipe(3)
 r4 = recipe(4)
+
+ingredients.1 <- paste("-", html_text(r1$ingredients))
+ingredients.2 <- paste("-", html_text(r2$ingredients))
+ingredients.3 <- paste("-", html_text(r3$ingredients))
+ingredients.4 <- paste("-", html_text(r4$ingredients))
 ```
 
 
@@ -143,6 +139,12 @@ r4 = recipe(4)
 ```{r}
 #| echo: false
 #| results: 'asis'
+all.ingredients = c(ingredients.1,ingredients.2,ingredients.3,ingredients.4)
+
+cat(all.ingredients, sep = "\n")
+
+
+
 ```
 
 
@@ -161,7 +163,6 @@ cat(paste('![', recipe.title, '](', r1$image.url, "){width=50%}", sep=""))
 ```{r}
 #| echo: false
 #| results: 'asis'
-ingredients.1 <- paste("-", html_text(r1$ingredients))
 cat(ingredients.1, sep = "\n")
 ```
 
@@ -188,7 +189,6 @@ cat(paste('![', recipe.title, '](', r2$image.url, "){width=50%}", sep=""))
 ```{r}
 #| echo: false
 #| results: 'asis'
-ingredients.2 <- paste("-", html_text(r2$ingredients))
 cat(ingredients.2, sep = "\n")
 ```
 
@@ -215,7 +215,6 @@ cat(paste('![', recipe.title, '](', r3$image.url, "){width=50%}", sep=""))
 ```{r}
 #| echo: false
 #| results: 'asis'
-ingredients.3 <- paste("-", html_text(r3$ingredients))
 cat(ingredients.3, sep = "\n")
 ```
 
@@ -243,7 +242,6 @@ cat(paste('![', recipe.title, '](', r4$image.url, "){width=50%}", sep=""))
 ```{r}
 #| echo: false
 #| results: 'asis'
-ingredients.4 <- paste("-", html_text(r4$ingredients))
 cat(ingredients.4, sep = "\n")
 ```
 
@@ -253,3 +251,4 @@ cat(ingredients.4, sep = "\n")
 formatted_list <- paste("1.", html_text(r4$instructions))
 cat(formatted_list, sep = "\n")
 ```
+
