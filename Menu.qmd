@@ -94,15 +94,17 @@ dinner <- c("website/AfricanPeanutSoup.html",
 
 When you render this document, no code should be visible. Instead, you should see a five-page document as described above.
 
-# Ingredients
 
 ```{r}
-(meals = c(sample(dinner, 3, replace = F),sample(breakfasts, 1)))
+#| include: false
+meals = c(sample(dinner, 3, replace = F),sample(breakfasts, 1))
 ```
 
 \newpage
 
 ```{r}
+#| include: false
+
 # I am going to create a general algorithm for n number of recipes because I want practice with this type of coding.
 
 library("rvest")
@@ -136,6 +138,12 @@ r4 = recipe(4)
 ```
 
 
+# Ingredients
+
+```{r}
+#| echo: false
+#| results: 'asis'
+```
 
 
 # Recipe One
@@ -153,8 +161,8 @@ cat(paste('![', recipe.title, '](', r1$image.url, "){width=50%}", sep=""))
 ```{r}
 #| echo: false
 #| results: 'asis'
-formatted_list <- paste("-", html_text(r1$ingredients))
-cat(formatted_list, sep = "\n")
+ingredients.1 <- paste("-", html_text(r1$ingredients))
+cat(ingredients.1, sep = "\n")
 ```
 
 ```{r}
@@ -180,8 +188,8 @@ cat(paste('![', recipe.title, '](', r2$image.url, "){width=50%}", sep=""))
 ```{r}
 #| echo: false
 #| results: 'asis'
-formatted_list <- paste("-", html_text(r2$ingredients))
-cat(formatted_list, sep = "\n")
+ingredients.2 <- paste("-", html_text(r2$ingredients))
+cat(ingredients.2, sep = "\n")
 ```
 
 ```{r}
@@ -195,6 +203,53 @@ cat(formatted_list, sep = "\n")
 
 # Recipe Three
 
+```{r}
+#| echo: false
+#| results: 'asis'
+# width="50%" shrinks the image for printing
+recipe.title <- html_element(recipe.items[[3]],"h1") |> html_text()
+cat(paste('![', recipe.title, '](', r3$image.url, "){width=50%}", sep="")) 
+```
+
+
+```{r}
+#| echo: false
+#| results: 'asis'
+ingredients.3 <- paste("-", html_text(r3$ingredients))
+cat(ingredients.3, sep = "\n")
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+formatted_list <- paste("1.", html_text(r3$instructions))
+cat(formatted_list, sep = "\n")
+```
+
 \newpage
 
 # Breakfast Recipe
+
+
+```{r}
+#| echo: false
+#| results: 'asis'
+# width="50%" shrinks the image for printing
+recipe.title <- html_element(recipe.items[[4]],"h1") |> html_text()
+cat(paste('![', recipe.title, '](', r4$image.url, "){width=50%}", sep="")) 
+```
+
+
+```{r}
+#| echo: false
+#| results: 'asis'
+ingredients.4 <- paste("-", html_text(r4$ingredients))
+cat(ingredients.4, sep = "\n")
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+formatted_list <- paste("1.", html_text(r4$instructions))
+cat(formatted_list, sep = "\n")
+```
