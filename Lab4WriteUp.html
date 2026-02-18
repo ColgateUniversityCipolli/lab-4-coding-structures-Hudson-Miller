@@ -684,14 +684,20 @@ window.Quarto = {
 <section id="conditionals" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="conditionals"><span class="header-section-number">4.2</span> Conditionals</h2>
 <p>Did you use conditional statements in your code? If yes, how. If not, are there places you could have used them but did something else?</p>
+<p><strong>Solution</strong></p>
+<p>I did not use any conditional statements in the web scraper. I made the pipeline semi-generalizeable, but I did hardcode the recipe 1-4 vectors into the code. I could have used them to make the code more generalizable, specifically in extracting the html elements. For the extraction of ingredients, instructions, and the images, I could have used conditional statements to store the html to a certain variable depending upon which html type each element is. Looking back, this would have made the code more applicable as a general format for web scraping, and is definitely something I’d consider for extracting HTML in the future.</p>
 </section>
 <section id="loops" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="loops"><span class="header-section-number">4.3</span> Loops</h2>
 <p>Did you use loops in your code? If yes, how. If not, are there places you could have used them but did something else?</p>
+<p><strong>Solution</strong></p>
+<p>No, I did not use any loops. I could have used for loops instead of the r1,r2 etc. structure, which would have also made the code easier to apply to other scenarios. Since there were only four “cases”, though, I thought that it fit the problem best to just hardcode the vectors and copy/paste the logic for each recipe.</p>
 </section>
 <section id="functions" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="functions"><span class="header-section-number">4.4</span> Functions</h2>
 <p>Did you use functions in your code? If yes, how. If not, are there places you could have used them but did something else?</p>
+<p><strong>Solution</strong></p>
+<p>Yes, I used functions for the main structure of my code. I used them to write logic that would perform the code for any recipe number. This solution was halfway to being an efficient and scaleable pipeline; with the missing ingredient being logic to loop through any number of recipes.</p>
 
 </section>
 </section>
